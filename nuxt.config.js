@@ -49,13 +49,20 @@ export default {
 
   auth: {
     strategies: {
-      'laravelSanctum': {
-        provider: 'laravel/sanctum',
-        url: process.env.BASE_URL,
+      local: {
+        token: {
+          property: 'token',
+          global: true,
+        },
+        user: {
+          property: 'user',
+        },
         endpoints: {
-          login: { url: '/api/auth/login', method: 'post' },
+          login: { url: `${process.env.BASE_URL}/api/auth/login`, method: 'post' },
+          logout: { url: `${process.env.BASE_URL}/api/auth/logout`, method: 'post' },
+          user: { url: `${process.env.BASE_URL}/api/auth/user`, method: 'get' }
         }
-      },
+      }
     }
   },
 

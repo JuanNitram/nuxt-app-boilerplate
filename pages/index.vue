@@ -6,13 +6,15 @@
 
 <script>
 export default {
-  // mounted(){
-    // this.$auth.loginWith('laravelSanctum', {
-    //   data: {
-    //     email: '',
-    //     password: ''
-    //   }
-    // });
-  // }
+  mounted(){
+    this.$auth.loginWith('local', {
+      data: {
+        email: '',
+        password: ''
+      }
+    }).then(() => {
+      console.log(this.$auth)
+    });
+  }
 }
 </script>
